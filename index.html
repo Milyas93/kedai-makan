@@ -3,149 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kedai Makan</title>
+<title>Kedai Makan Anda</title>
 
 <style>
 :root{
   --primary:#ff7a00;
-  --bg:#f7f7f7;
+  --dark:#1f1f1f;
+  --bg:#f6f7fb;
   --card:#ffffff;
-  --shadow:0 10px 28px rgba(0,0,0,.12);
+  --shadow:0 20px 40px rgba(0,0,0,.12);
 }
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
   background:var(--bg);
+  color:#222;
 }
-header{
-  background:var(--primary);
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#ff7a00,#ff9f45);
   color:#fff;
-  padding:20px;
-  text-align:center;
-  font-size:22px;
-  font-weight:bold;
+  padding:70px 6% 90px;
+  position:relative;
 }
-section{padding:30px 6%}
+.hero h1{
+  font-size:36px;
+  margin:0 0 10px;
+}
+.hero p{
+  font-size:18px;
+  opacity:.95;
+  max-width:500px;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;
+  height:80px;
+  background:var(--bg);
+  border-top-left-radius:50px;
+  border-top-right-radius:50px;
+}
+
+/* SECTION */
+section{
+  padding:60px 6%;
+}
 h2{
-  border-left:6px solid var(--primary);
-  padding-left:12px;
+  font-size:26px;
+  margin-bottom:28px;
+  position:relative;
+  padding-left:14px;
 }
+h2::before{
+  content:"";
+  position:absolute;
+  left:0;top:5px;
+  width:6px;
+  height:28px;
+  background:var(--primary);
+  border-radius:4px;
+}
+
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
 }
+
+/* CARD */
 .card{
-  background:#fff;
-  border-radius:16px;
-  box-shadow:var(--shadow);
+  background:var(--card);
+  border-radius:20px;
   overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-10px);
 }
 .card img{
   width:100%;
-  height:160px;
+  height:190px;
   object-fit:cover;
 }
-.info{padding:14px}
-.price{color:var(--primary);font-weight:bold}
-button{
-  background:var(--primary);
-  color:#fff;
-  border:none;
-  padding:8px 12px;
-  border-radius:6px;
-  cursor:pointer;
+.info{
+  padding:18px;
 }
-.admin{
-  background:#fff3e0;
-  padding:20px;
-  margin:20px;
-  border-radius:12px;
+.info h3{
+  margin:0 0 8px;
+  font-size:19px;
 }
-input,select{
-  width:100%;
-  padding:8px;
-  margin-bottom:10px;
+.price{
+  color:var(--primary);
+  font-weight:700;
+  font-size:17px;
 }
-footer{text-align:center;padding:20px;color:#777}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#888;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:28px}
+  .hero p{font-size:16px}
+}
 </style>
 </head>
 
 <body>
 
-<header>🍽️ Menu Kedai Makan</header>
-
-<div id="adminPanel" class="admin" style="display:none">
-  <h3>🔧 Admin Panel</h3>
-  <select id="cat">
-    <option>nasi-goreng</option>
-    <option>masakan-berkuah</option>
-    <option>minuman</option>
-    <option>pencuci-mulut</option>
-  </select>
-  <input id="name" placeholder="Nama menu">
-  <input id="price" type="number" placeholder="Harga">
-  <input id="img" placeholder="Nama gambar (contoh: 1.jpg)">
-  <button onclick="addMenu()">➕ Tambah Menu</button>
+<!-- HERO -->
+<div class="hero">
+  <h1>🍽️ Selamat Datang</h1>
+  <p>Nikmati pelbagai menu panas & segar setiap hari.  
+  Pilih menu kegemaran anda di bawah 👇</p>
 </div>
 
-<section id="menu"></section>
+<!-- NASI GORENG -->
+<section>
+<h2>🍳 Nasi Goreng</h2>
+<div class="grid">
+  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Pattaya</h3><div class="price">RM6.00</div></div></div>
+  <div class="card"><img src="nasi-goreng/2.jpg"><div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM7.00</div></div></div>
+  <div class="card"><img src="nasi-goreng/3.jpg"><div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM8.00</div></div></div>
+</div>
+</section>
 
-<footer>© Kedai Makan</footer>
+<!-- MASAKAN BERKUAH -->
+<section>
+<h2>🍲 Masakan Berkuah</h2>
+<div class="grid">
+  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Sayur</h3><div class="price">RM6.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Kari Ayam</h3><div class="price">RM9.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM8.00</div></div></div>
+</div>
+</section>
 
-<script>
-const isAdmin = location.search.includes("admin=1");
+<!-- MINUMAN -->
+<section>
+<h2>🥤 Minuman</h2>
+<div class="grid">
+  <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM3.00</div></div></div>
+  <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Jus Oren</h3><div class="price">RM2.00</div></div></div>
+  <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM2.50</div></div></div>
+</div>
+</section>
 
-if(isAdmin){
-  document.getElementById("adminPanel").style.display="block";
-}
+<!-- PENCUCI MULUT -->
+<section>
+<h2>🍰 Pencuci Mulut</h2>
+<div class="grid">
+  <div class="card"><img src="pencuci-mulut/1.jpg"><div class="info"><h3>Ais Batu Campur</h3><div class="price">RM4.00</div></div></div>
+  <div class="card"><img src="pencuci-mulut/2.jpg"><div class="info"><h3>Ais Krim Goreng</h3><div class="price">RM3.00</div></div></div>
+</div>
+</section>
 
-let data = JSON.parse(localStorage.getItem("MENU")) || {
-  "nasi-goreng":[],
-  "masakan-berkuah":[],
-  "minuman":[],
-  "pencuci-mulut":[]
-};
-
-function save(){ localStorage.setItem("MENU",JSON.stringify(data)); render(); }
-
-function addMenu(){
-  const c = cat.value;
-  data[c].push({
-    name:name.value,
-    price:price.value,
-    img:`${c}/${img.value}`
-  });
-  save();
-}
-
-function del(cat,i){
-  data[cat].splice(i,1);
-  save();
-}
-
-function render(){
-  menu.innerHTML="";
-  for(const cat in data){
-    if(!data[cat].length) continue;
-    menu.innerHTML += `<h2>${cat.replace("-"," ").toUpperCase()}</h2><div class="grid">`;
-    data[cat].forEach((m,i)=>{
-      menu.innerHTML += `
-      <div class="card">
-        <img src="${m.img}">
-        <div class="info">
-          <b>${m.name}</b><br>
-          <span class="price">RM${Number(m.price).toFixed(2)}</span>
-          ${isAdmin?`<br><button onclick="del('${cat}',${i})">🗑 Padam</button>`:""}
-        </div>
-      </div>`;
-    });
-    menu.innerHTML += "</div>";
-  }
-}
-render();
-</script>
+<footer>© Kedai Makan Anda • Dibina dengan ❤️</footer>
 
 </body>
 </html>
