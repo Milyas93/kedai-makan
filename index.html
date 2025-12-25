@@ -17,23 +17,20 @@ body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
-  color:#222;
 }
 header{
   background:var(--primary);
   color:#fff;
-  padding:20px;
+  padding:22px;
   text-align:center;
   font-size:22px;
   font-weight:bold;
 }
-section{
-  padding:36px 6%;
-}
+section{padding:36px 6%}
 h2{
-  margin-bottom:22px;
   border-left:6px solid var(--primary);
   padding-left:12px;
+  margin-bottom:22px;
 }
 .grid{
   display:grid;
@@ -41,7 +38,7 @@ h2{
   gap:20px;
 }
 .card{
-  background:var(--card);
+  background:#fff;
   border-radius:16px;
   overflow:hidden;
   box-shadow:var(--shadow);
@@ -51,22 +48,13 @@ h2{
   height:180px;
   object-fit:cover;
 }
-.info{
-  padding:14px;
-}
-.info h3{
-  margin:0 0 6px;
-  font-size:18px;
-}
+.info{padding:14px}
+.info h3{margin:0 0 6px}
 .price{
   color:var(--primary);
   font-weight:bold;
 }
-footer{
-  text-align:center;
-  padding:28px;
-  color:#777;
-}
+footer{text-align:center;padding:28px;color:#777}
 </style>
 </head>
 
@@ -74,69 +62,102 @@ footer{
 
 <header>🍽️ Menu Kedai Makan</header>
 
-<!-- NASI GORENG (3) -->
+<!-- ================= ADMIN PRICE CONTROL ================= -->
+<script>
+const PRICE = {
+  // NASI GORENG
+  "Nasi Goreng Pattaya": 6,
+  "Nasi Goreng Ayam": 7,
+  "Nasi Goreng Kampung": 8,
+
+  // MASAKAN BERKUAH
+  "Sup Sayur": 6,
+  "Kari Ayam": 9,
+  "Tomyam Seafood": 8,
+  "Lamb Shank": 10,
+  "Sup Cendawan": 12,
+  "Sup Daging": 11,
+  "Sup Ayam": 6,
+  "Sup Tulang": 6.5,
+  "Sup Ekor": 13,
+
+  // MINUMAN
+  "Air Bandung": 3,
+  "Jus Oren": 2,
+  "Air Lemon": 2.5,
+  "Air Limau": 2.5,
+  "Air Kosong": 0,
+  "Teh Tarik": 4,
+  "Air Tembikai": 2.5,
+
+  // PENCUCI MULUT
+  "Ais Batu Campur": 4,
+  "Ais Krim Goreng": 3,
+  "Cendol": 3.5,
+  "Kek Coklat": 5,
+  "Pisang Goreng": 4,
+  "Cerimal": 3
+};
+</script>
+<!-- ======================================================= -->
+
 <section>
 <h2>🍳 Nasi Goreng</h2>
 <div class="grid">
-  <div class="card">
-    <img src="nasi-goreng/1.jpg">
-    <div class="info"><h3>Nasi Goreng Pataya</h3><div class="price">RM6.00</div></div>
-  </div>
-  <div class="card">
-    <img src="nasi-goreng/2.jpg">
-    <div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM7.00</div></div>
-  </div>
-  <div class="card">
-    <img src="nasi-goreng/3.jpg">
-    <div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM8.00</div></div>
-  </div>
+  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Pattaya</h3><div class="price">RM<span id="p1"></span></div></div></div>
+  <div class="card"><img src="nasi-goreng/2.jpg"><div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM<span id="p2"></span></div></div></div>
+  <div class="card"><img src="nasi-goreng/3.jpg"><div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM<span id="p3"></span></div></div></div>
 </div>
 </section>
 
-<!-- MASAKAN BERKUAH (9) -->
 <section>
 <h2>🍲 Masakan Berkuah</h2>
 <div class="grid">
-  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Sayur</h3><div class="price">RM7.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Sup Kari Ayam</h3><div class="price">RM9.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM8.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/4.jpg"><div class="info"><h3>Lamb Shank</h3><div class="price">RM10.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/5.jpg"><div class="info"><h3>Sup Cendawan</h3><div class="price">RM12.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/6.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM11.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/7.jpg"><div class="info"><h3>Sup Ayam</h3><div class="price">RM6.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/8.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM6.50</div></div></div>
-  <div class="card"><img src="masakan-berkuah/9.jpg"><div class="info"><h3>Sup Ekor</h3><div class="price">RM13.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Sayur</h3><div class="price">RM<span id="p4"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Kari Ayam</h3><div class="price">RM<span id="p5"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM<span id="p6"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/4.jpg"><div class="info"><h3>Lamb Shank</h3><div class="price">RM<span id="p7"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/5.jpg"><div class="info"><h3>Sup Cendawan</h3><div class="price">RM<span id="p8"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/6.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM<span id="p9"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/7.jpg"><div class="info"><h3>Sup Ayam</h3><div class="price">RM<span id="p10"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/8.jpg"><div class="info"><h3>Sup Tulang</h3><div class="price">RM<span id="p11"></span></div></div></div>
+  <div class="card"><img src="masakan-berkuah/9.jpg"><div class="info"><h3>Sup Ekor</h3><div class="price">RM<span id="p12"></span></div></div></div>
 </div>
 </section>
 
-<!-- MINUMAN (7) -->
 <section>
 <h2>🥤 Minuman</h2>
 <div class="grid">
-  <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM3.00</div></div></div>
-  <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Jus Oren</h3><div class="price">RM2.00</div></div></div>
-  <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM2.50</div></div></div>
-  <div class="card"><img src="minuman/4.jpg"><div class="info"><h3>Air Limau</h3><div class="price">RM2.50</div></div></div>
-  <div class="card"><img src="minuman/5.jpg"><div class="info"><h3>Air Kosong</h3><div class="price">RM0.00</div></div></div>
-  <div class="card"><img src="minuman/6.jpg"><div class="info"><h3>Teh Tarik</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="minuman/7.jpg"><div class="info"><h3>Air Tembikai</h3><div class="price">RM2.50</div></div></div>
+  <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM<span id="p13"></span></div></div></div>
+  <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Jus Oren</h3><div class="price">RM<span id="p14"></span></div></div></div>
+  <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM<span id="p15"></span></div></div></div>
+  <div class="card"><img src="minuman/4.jpg"><div class="info"><h3>Air Limau</h3><div class="price">RM<span id="p16"></span></div></div></div>
+  <div class="card"><img src="minuman/5.jpg"><div class="info"><h3>Air Kosong</h3><div class="price">RM<span id="p17"></span></div></div></div>
+  <div class="card"><img src="minuman/6.jpg"><div class="info"><h3>Teh Tarik</h3><div class="price">RM<span id="p18"></span></div></div></div>
+  <div class="card"><img src="minuman/7.jpg"><div class="info"><h3>Air Tembikai</h3><div class="price">RM<span id="p19"></span></div></div></div>
 </div>
 </section>
 
-<!-- PENCUCI MULUT (6) -->
 <section>
 <h2>🍰 Pencuci Mulut</h2>
 <div class="grid">
-  <div class="card"><img src="pencuci-mulut/1.jpg"><div class="info"><h3>Ais Batu Campur</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/2.jpg"><div class="info"><h3>Ais Krim Goreng</h3><div class="price">RM3.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/3.jpg"><div class="info"><h3>Cendol</h3><div class="price">RM3.50</div></div></div>
-  <div class="card"><img src="pencuci-mulut/4.jpg"><div class="info"><h3>Kek Coklat</h3><div class="price">RM5.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/5.jpg"><div class="info"><h3>Pisang Goreng</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/6.jpg"><div class="info"><h3>Cerimal</h3><div class="price">RM3.00</div></div></div>
+  <div class="card"><img src="pencuci-mulut/1.jpg"><div class="info"><h3>Ais Batu Campur</h3><div class="price">RM<span id="p20"></span></div></div></div>
+  <div class="card"><img src="pencuci-mulut/2.jpg"><div class="info"><h3>Ais Krim Goreng</h3><div class="price">RM<span id="p21"></span></div></div></div>
+  <div class="card"><img src="pencuci-mulut/3.jpg"><div class="info"><h3>Cendol</h3><div class="price">RM<span id="p22"></span></div></div></div>
+  <div class="card"><img src="pencuci-mulut/4.jpg"><div class="info"><h3>Kek Coklat</h3><div class="price">RM<span id="p23"></span></div></div></div>
+  <div class="card"><img src="pencuci-mulut/5.jpg"><div class="info"><h3>Pisang Goreng</h3><div class="price">RM<span id="p24"></span></div></div></div>
+  <div class="card"><img src="pencuci-mulut/6.jpg"><div class="info"><h3>Cerimal</h3><div class="price">RM<span id="p25"></span></div></div></div>
 </div>
 </section>
 
 <footer>© Kedai Makan Anda</footer>
+
+<script>
+const names = Object.keys(PRICE);
+Object.values(PRICE).forEach((v,i)=>{
+  document.getElementById("p"+(i+1)).innerText = v.toFixed(2);
+});
+</script>
 
 </body>
 </html>
