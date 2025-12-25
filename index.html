@@ -8,155 +8,137 @@
 <style>
 :root{
   --primary:#ff7a00;
-  --bg:#f6f7fb;
+  --bg:#f7f7f7;
   --card:#ffffff;
-  --shadow:0 18px 40px rgba(0,0,0,.12);
-  --wa:#25D366;
+  --shadow:0 10px 28px rgba(0,0,0,.12);
 }
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:#222;
-  overflow-x:hidden;
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(135deg,#ff7a00,#ff9f45);
+  height:85vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("hero.png") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   color:#fff;
-  padding:80px 6% 100px;
-  animation:fadeDown 1s ease;
 }
-.hero h1{font-size:36px;margin:0}
-.hero p{font-size:18px;opacity:.95;max-width:520px}
+.hero h1{font-size:52px;margin:0}
+.hero p{font-size:18px;margin:10px 0 24px}
+.hero a{
+  background:var(--primary);
+  color:#fff;
+  padding:14px 34px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-/* SECTION */
-section{padding:60px 6%}
+section{padding:36px 6%}
 h2{
-  font-size:26px;margin-bottom:28px;position:relative;padding-left:14px
+  margin-bottom:22px;
+  border-left:6px solid var(--primary);
+  padding-left:12px;
 }
-h2::before{
-  content:"";position:absolute;left:0;top:5px;width:6px;height:28px;
-  background:var(--primary);border-radius:4px
-}
-
-/* GRID */
 .grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
 }
-
-/* CARD */
 .card{
-  background:var(--card);border-radius:20px;overflow:hidden;
+  background:var(--card);
+  border-radius:16px;
+  overflow:hidden;
   box-shadow:var(--shadow);
-  transform:translateY(40px);opacity:0;transition:.6s ease
 }
-.card.show{transform:translateY(0);opacity:1}
-.card:hover{transform:translateY(-10px) scale(1.01)}
-.card img{width:100%;height:190px;object-fit:cover}
-.info{padding:18px}
-.info h3{margin:0 0 8px;font-size:19px}
-.price{color:var(--primary);font-weight:700}
-
-/* FLOATING WHATSAPP */
-.wa-float{
-  position:fixed;right:18px;bottom:18px;z-index:999;
-  background:var(--wa);color:#fff;text-decoration:none;
-  width:56px;height:56px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 12px 30px rgba(0,0,0,.25);
-  animation:pulse 2s infinite
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
 }
-.wa-float:hover{transform:scale(1.05)}
-.wa-float span{font-size:28px;line-height:1}
-
-/* FOOTER */
-footer{text-align:center;padding:40px 20px;color:#888;font-size:14px}
-
-/* ANIMATIONS */
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}
-  70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .hero h1{font-size:28px}
-  .hero p{font-size:16px}
-}
+.info{padding:14px}
+.info h3{margin:0 0 6px;font-size:18px}
+.price{color:var(--primary);font-weight:bold}
+footer{text-align:center;padding:28px;color:#777}
 </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<div class="hero">
-  <h1>🍽️ Selamat Datang</h1>
-  <p>Nikmati menu panas & segar setiap hari.  
-  Tekan WhatsApp untuk order pantas 👇</p>
-</div>
+<header class="hero">
+  <div>
+    <h1>Alias Tomyam</h1>
+    <p>Sedap • Pedas • Padu 🔥</p>
+    <a href="#menu">Lihat Menu</a>
+  </div>
+</header>
 
+<div id="menu"></div>
+
+<!-- NASI GORENG (3) -->
 <section>
 <h2>🍳 Nasi Goreng</h2>
 <div class="grid">
-  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Pattaya</h3><div class="price">RM6.00</div></div></div>
+  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Pataya</h3><div class="price">RM6.00</div></div></div>
   <div class="card"><img src="nasi-goreng/2.jpg"><div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM7.00</div></div></div>
   <div class="card"><img src="nasi-goreng/3.jpg"><div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM8.00</div></div></div>
 </div>
 </section>
 
+<!-- MASAKAN BERKUAH (9) -->
 <section>
 <h2>🍲 Masakan Berkuah</h2>
 <div class="grid">
-  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Sayur</h3><div class="price">RM6.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Kari Ayam</h3><div class="price">RM9.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Sayur</h3><div class="price">RM7.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Sup Kari Ayam</h3><div class="price">RM9.00</div></div></div>
   <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM8.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/4.jpg"><div class="info"><h3>Lamb Shank</h3><div class="price">RM10.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/5.jpg"><div class="info"><h3>Sup Cendawan</h3><div class="price">RM12.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/6.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM11.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/7.jpg"><div class="info"><h3>Sup Ayam</h3><div class="price">RM6.00</div></div></div>
+  <div class="card"><img src="masakan-berkuah/8.jpg"><div class="info"><h3>Sup Tulang</h3><div class="price">RM6.50</div></div></div>
+  <div class="card"><img src="masakan-berkuah/9.jpg"><div class="info"><h3>Sup Ekor</h3><div class="price">RM13.00</div></div></div>
 </div>
 </section>
 
+<!-- MINUMAN (7) -->
 <section>
 <h2>🥤 Minuman</h2>
 <div class="grid">
   <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM3.00</div></div></div>
   <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Jus Oren</h3><div class="price">RM2.00</div></div></div>
   <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM2.50</div></div></div>
+  <div class="card"><img src="minuman/4.jpg"><div class="info"><h3>Air Limau</h3><div class="price">RM2.50</div></div></div>
+  <div class="card"><img src="minuman/5.jpg"><div class="info"><h3>Air Kosong</h3><div class="price">RM0.00</div></div></div>
+  <div class="card"><img src="minuman/6.jpg"><div class="info"><h3>Teh Tarik</h3><div class="price">RM4.00</div></div></div>
+  <div class="card"><img src="minuman/7.jpg"><div class="info"><h3>Air Tembikai</h3><div class="price">RM2.50</div></div></div>
 </div>
 </section>
 
+<!-- PENCUCI MULUT (6) -->
 <section>
 <h2>🍰 Pencuci Mulut</h2>
 <div class="grid">
   <div class="card"><img src="pencuci-mulut/1.jpg"><div class="info"><h3>Ais Batu Campur</h3><div class="price">RM4.00</div></div></div>
   <div class="card"><img src="pencuci-mulut/2.jpg"><div class="info"><h3>Ais Krim Goreng</h3><div class="price">RM3.00</div></div></div>
+  <div class="card"><img src="pencuci-mulut/3.jpg"><div class="info"><h3>Cendol</h3><div class="price">RM3.50</div></div></div>
+  <div class="card"><img src="pencuci-mulut/4.jpg"><div class="info"><h3>Kek Coklat</h3><div class="price">RM5.00</div></div></div>
+  <div class="card"><img src="pencuci-mulut/5.jpg"><div class="info"><h3>Pisang Goreng</h3><div class="price">RM4.00</div></div></div>
+  <div class="card"><img src="pencuci-mulut/6.jpg"><div class="info"><h3>Cerimal</h3><div class="price">RM3.00</div></div></div>
 </div>
 </section>
 
-<footer>© Kedai Makan Anda • Order via WhatsApp</footer>
-
-<!-- ===== FLOATING WHATSAPP LINK ===== -->
-<!-- 🔴 TUKAR DI SINI -->
-<a class="wa-float"
-   href="https://wa.me/60168286324?text=Hai%20saya%20nak%20order%20makanan.%20Boleh%20bantu%20ya?"
-   target="_blank" aria-label="WhatsApp Order">
-  <span>💬</span>
-</a>
-<!-- ================================= -->
-
-<script>
-const cards=document.querySelectorAll('.card');
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
-},{threshold:.2});
-cards.forEach(c=>io.observe(c));
-</script>
+<footer>© Kedai Makan Anda</footer>
 
 </body>
 </html>
