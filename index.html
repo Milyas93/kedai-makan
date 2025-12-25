@@ -11,6 +11,7 @@
   --bg:#f6f7fb;
   --card:#ffffff;
   --shadow:0 18px 40px rgba(0,0,0,.12);
+  --wa:#25D366;
 }
 *{box-sizing:border-box}
 body{
@@ -29,73 +30,61 @@ body{
   animation:fadeDown 1s ease;
 }
 .hero h1{font-size:36px;margin:0}
-.hero p{font-size:18px;opacity:.95;max-width:500px}
+.hero p{font-size:18px;opacity:.95;max-width:520px}
 
 /* SECTION */
-section{
-  padding:60px 6%;
-}
+section{padding:60px 6%}
 h2{
-  font-size:26px;
-  margin-bottom:28px;
-  position:relative;
-  padding-left:14px;
+  font-size:26px;margin-bottom:28px;position:relative;padding-left:14px
 }
 h2::before{
-  content:"";
-  position:absolute;
-  left:0;top:5px;
-  width:6px;
-  height:28px;
-  background:var(--primary);
-  border-radius:4px;
+  content:"";position:absolute;left:0;top:5px;width:6px;height:28px;
+  background:var(--primary);border-radius:4px
 }
 
 /* GRID */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px
 }
 
 /* CARD */
 .card{
-  background:var(--card);
-  border-radius:20px;
-  overflow:hidden;
+  background:var(--card);border-radius:20px;overflow:hidden;
   box-shadow:var(--shadow);
-  transform:translateY(40px);
-  opacity:0;
-  transition:.6s ease;
+  transform:translateY(40px);opacity:0;transition:.6s ease
 }
-.card.show{
-  transform:translateY(0);
-  opacity:1;
-}
-.card:hover{
-  transform:translateY(-10px) scale(1.01);
-}
-.card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-}
+.card.show{transform:translateY(0);opacity:1}
+.card:hover{transform:translateY(-10px) scale(1.01)}
+.card img{width:100%;height:190px;object-fit:cover}
 .info{padding:18px}
 .info h3{margin:0 0 8px;font-size:19px}
 .price{color:var(--primary);font-weight:700}
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px 20px;
-  color:#888;
-  font-size:14px;
+/* FLOATING WHATSAPP */
+.wa-float{
+  position:fixed;right:18px;bottom:18px;z-index:999;
+  background:var(--wa);color:#fff;text-decoration:none;
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  animation:pulse 2s infinite
 }
+.wa-float:hover{transform:scale(1.05)}
+.wa-float span{font-size:28px;line-height:1}
+
+/* FOOTER */
+footer{text-align:center;padding:40px 20px;color:#888;font-size:14px}
 
 /* ANIMATIONS */
 @keyframes fadeDown{
   from{opacity:0;transform:translateY(-30px)}
   to{opacity:1;transform:translateY(0)}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}
+  70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
 /* MOBILE */
@@ -112,7 +101,7 @@ footer{
 <div class="hero">
   <h1>🍽️ Selamat Datang</h1>
   <p>Nikmati menu panas & segar setiap hari.  
-  Pilih menu kegemaran anda di bawah 👇</p>
+  Tekan WhatsApp untuk order pantas 👇</p>
 </div>
 
 <section>
@@ -150,14 +139,21 @@ footer{
 </div>
 </section>
 
-<footer>© Kedai Makan Anda • UI Premium</footer>
+<footer>© Kedai Makan Anda • Order via WhatsApp</footer>
+
+<!-- ===== FLOATING WHATSAPP LINK ===== -->
+<!-- 🔴 TUKAR DI SINI -->
+<a class="wa-float"
+   href="https://wa.me/60168286324?text=Hai%20saya%20nak%20order%20makanan.%20Boleh%20bantu%20ya?"
+   target="_blank" aria-label="WhatsApp Order">
+  <span>💬</span>
+</a>
+<!-- ================================= -->
 
 <script>
 const cards=document.querySelectorAll('.card');
 const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('show');
-  });
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
 },{threshold:.2});
 cards.forEach(c=>io.observe(c));
 </script>
