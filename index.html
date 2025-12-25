@@ -2,43 +2,52 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<title>Menu Kedai Makan</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedai Makan Anda</title>
 
 <style>
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background:#f4f4f4;
+  font-family:Arial, sans-serif;
+  background:#f5f5f5;
   color:#222;
 }
 header{
   background:#ff6a00;
-  color:#fff;
+  color:white;
   padding:20px;
   text-align:center;
+  font-size:22px;
+  font-weight:bold;
 }
 section{
   padding:20px;
+  max-width:1200px;
+  margin:auto;
 }
 h2{
-  margin-top:30px;
+  margin-top:40px;
+  border-left:6px solid #ff6a00;
+  padding-left:12px;
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
+  margin-top:15px;
 }
 .grid img{
   width:100%;
+  height:160px;
+  object-fit:cover;
   border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
 footer{
   text-align:center;
-  padding:15px;
-  font-size:14px;
+  padding:20px;
   color:#777;
+  font-size:14px;
 }
 </style>
 </head>
@@ -46,41 +55,43 @@ footer{
 <body>
 
 <header>
-  <h1>Menu Kedai Makan</h1>
-  <p>Pilih menu kegemaran anda 🍽️</p>
+🍽️ Pilih Menu Kegemaran Anda
 </header>
 
 <section>
-  <h2>🍛 Nasi Goreng</h2>
-  <div class="grid">
-    <img src="images/nasi-goreng/Served-nasi-goreng-ayam-zoomed-500x500.jpg">
-    <img src="images/nasi-goreng/nasi-goreng-usa-recipe.jpg">
-    <img src="images/nasi-goreng/Nasi_goreng_pattaya_20231028_120535.jpg">
-  </div>
 
-  <h2>🍜 Masakan Berkuah</h2>
-  <div class="grid">
-    <img src="images/masakan berkuah/cropped-Tomyam-Seafood-1.jpg">
-    <img src="images/masakan berkuah/Sup-Kambing-recipe-square.jpg">
-    <img src="images/masakan berkuah/mushroom-soup.jpg">
-  </div>
+<h2>🍳 Nasi Goreng</h2>
+<div class="grid">
+  <img src="images/nasi-goreng/nasi-goreng-1.jpg">
+  <img src="images/nasi-goreng/nasi-goreng-2.jpg">
+  <img src="images/nasi-goreng/nasi-goreng-3.jpg">
+</div>
 
-  <h2>🥤 Minuman</h2>
-  <div class="grid">
-    <img src="images/minuman/Teh-ais-recipe.jpg">
-    <img src="images/minuman/Air-Lemon-Kocha-1000x1000-1.jpg">
-    <img src="images/minuman/NESCAFÉ Cans Ice.webp">
-  </div>
+<h2>🍲 Masakan Berkuah</h2>
+<div class="grid">
+  <img src="images/masakan-berkuah/Sup-Kambing-recipe-square.jpg">
+  <img src="images/masakan-berkuah/Tomyam_Ayam_.jpg">
+  <img src="images/masakan-berkuah/mushroom-soup.jpg">
+</div>
 
-  <h2>🍰 Pencuci Mulut</h2>
-  <div class="grid">
-    <img src="images/pencuci mulut/moist-chocolate-cake-featured.jpg">
-    <img src="images/pencuci mulut/puding-coklat-ala-kfc-foto-resep-utama.jpg">
-  </div>
+<h2>🥤 Minuman</h2>
+<div class="grid">
+  <img src="images/minuman/minuman-1.jpg">
+  <img src="images/minuman/minuman-2.jpg">
+  <img src="images/minuman/minuman-3.jpg">
+</div>
+
+<h2>🍰 Pencuci Mulut</h2>
+<div class="grid">
+  <img src="images/pencuci-mulut/pencuci-1.jpg">
+  <img src="images/pencuci-mulut/pencuci-2.jpg">
+  <img src="images/pencuci-mulut/pencuci-3.jpg">
+</div>
+
 </section>
 
 <footer>
-  © Kedai Makan Anda
+© Kedai Makan Anda
 </footer>
 
 </body>
