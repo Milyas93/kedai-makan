@@ -6,9 +6,21 @@
 <title>Demo Fast Food</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f4f4}
-header{background:#d32f2f;color:#fff;padding:20px;text-align:center}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f4f4;
+  color:#222;
+}
+header{
+  background:#c62828;
+  color:#fff;
+  padding:20px;
+  text-align:center;
+}
 
+/* MENU */
 .menu{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -20,21 +32,177 @@ header{background:#d32f2f;color:#fff;padding:20px;text-align:center}
   border-radius:14px;
   padding:10px;
   text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,.1)
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
-.card img{width:100%;border-radius:10px}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+.card h4{margin:8px 0 4px}
+.card p{margin:0;color:#c62828;font-weight:bold}
 .card button{
   margin-top:8px;
-  background:#d32f2f;
+  background:#c62828;
   color:#fff;
   border:none;
-  padding:8px 12px;
+  padding:10px 14px;
   border-radius:20px;
-  cursor:pointer
+  cursor:pointer;
 }
 
 /* CART BUTTON */
 .cart-btn{
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background:#000;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:30px;
+  cursor:pointer;
+  z-index:9;
+}
+
+/* CART POPUP */
+.cart{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+.cart-box{
+  background:#fff;
+  width:90%;
+  max-width:360px;
+  border-radius:16px;
+  padding:16px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:8px 0;
+}
+.cart-item button{
+  padding:4px 8px;
+}
+.total{
+  font-weight:bold;
+  margin-top:10px;
+}
+.checkout{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-align:center;
+  padding:12px;
+  border-radius:30px;
+  margin-top:12px;
+  text-decoration:none;
+}
+.close{
+  float:right;
+  font-size:20px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Demo Fast Food</h1>
+  <p>Add to Cart + Auto Kira</p>
+</header>
+
+<div class="menu">
+  <div class="card">
+    <img src="images/burger.jpg">
+    <h4>Burger Ayam</h4>
+    <p>RM 6</p>
+    <button onclick="addCart('Burger Ayam',6)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="images/set.jpg">
+    <h4>Set Combo</h4>
+    <p>RM 12</p>
+    <button onclick="addCart('Set Combo',12)">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="images/minuman.jpg">
+    <h4>Air Cola</h4>
+    <p>RM 3</p>
+    <button onclick="addCart('Air Cola',3)">Add to Cart</button>
+  </div>
+</div>
+
+<div class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</div>
+
+<!-- CART -->
+<div class="cart" id="cart">
+  <div class="cart-box">
+    <span class="close" onclick="closeCart()">×</span>
+    <h3>Cart</h3>
+    <div id="cartItems"></div>
+    <div class="total">Jumlah: RM <span id="total">0</span></div>
+    <a id="checkout" class="checkout" target="_blank">Checkout WhatsApp</a>
+  </div>
+</div>
+
+<script>
+const whatsapp = "6019XXXXXXX"; // TUKAR NO ANDA
+let cart = [];
+
+function addCart(nama,harga){
+  let item = cart.find(i=>i.nama===nama);
+  if(item) item.qty++;
+  else cart.push({nama,harga,qty:1});
+  renderCart();
+}
+
+function renderCart(){
+  let html="";
+  let total=0;
+  cart.forEach((i,idx)=>{
+    total += i.harga * i.qty;
+    html += `
+      <div class="cart-item">
+        <span>${i.nama} x ${i.qty}</span>
+        <span>
+          <button onclick="cart[idx].qty--; if(cart[idx].qty<=0) cart.splice(idx,1); renderCart()">-</button>
+          <button onclick="cart[idx].qty++; renderCart()">+</button>
+        </span>
+      </div>`;
+  });
+  document.getElementById("cartItems").innerHTML = html;
+  document.getElementById("total").innerText = total;
+  document.getElementById("count").innerText = cart.length;
+
+  let msg = "Order:%0A";
+  cart.forEach(i=>{
+    msg += `${i.nama} x${i.qty} = RM${i.harga*i.qty}%0A`;
+  });
+  msg += `Jumlah: RM${total}`;
+
+  document.getElementById("checkout").href =
+    `https://wa.me/${whatsapp}?text=${msg}`;
+}
+
+function openCart(){
+  document.getElementById("cart").style.display="flex";
+}
+function closeCart(){
+  document.getElementById("cart").style.display="none";
+}
+</script>
+
+</body>
+</html>.cart-btn{
   position:fixed;
   bottom:15px;right:15px;
   background:#000;color:#fff;
