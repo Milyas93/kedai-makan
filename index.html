@@ -2,111 +2,43 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo Fast Food</title>
+<title>Menu Kedai Makan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family: Arial, sans-serif;
   background:#f4f4f4;
   color:#222;
 }
 header{
-  background:#c62828;
+  background:#ff6a00;
   color:#fff;
   padding:20px;
   text-align:center;
 }
-
-/* MENU */
-.menu{
+section{
+  padding:20px;
+}
+h2{
+  margin-top:30px;
+}
+.grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  padding:12px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
 }
-.card{
-  background:#fff;
-  border-radius:14px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
-}
-.card img{
+.grid img{
   width:100%;
-  border-radius:10px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-.card h4{margin:8px 0 4px}
-.card p{margin:0;color:#c62828;font-weight:bold}
-.card button{
-  margin-top:8px;
-  background:#c62828;
-  color:#fff;
-  border:none;
-  padding:10px 14px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* CART BUTTON */
-.cart-btn{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:#000;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:30px;
-  cursor:pointer;
-  z-index:9;
-}
-
-/* CART POPUP */
-.cart{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  justify-content:center;
-  align-items:center;
-  z-index:10;
-}
-.cart-box{
-  background:#fff;
-  width:90%;
-  max-width:360px;
-  border-radius:16px;
-  padding:16px;
-}
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:8px 0;
-}
-.cart-item button{
-  padding:4px 8px;
-}
-.total{
-  font-weight:bold;
-  margin-top:10px;
-}
-.checkout{
-  display:block;
-  background:#25D366;
-  color:#fff;
+footer{
   text-align:center;
-  padding:12px;
-  border-radius:30px;
-  margin-top:12px;
-  text-decoration:none;
-}
-.close{
-  float:right;
-  font-size:20px;
-  cursor:pointer;
+  padding:15px;
+  font-size:14px;
+  color:#777;
 }
 </style>
 </head>
@@ -114,230 +46,42 @@ header{
 <body>
 
 <header>
-  <h1>Demo Fast Food</h1>
-  <p>Add to Cart + Auto Kira</p>
+  <h1>Menu Kedai Makan</h1>
+  <p>Pilih menu kegemaran anda 🍽️</p>
 </header>
 
-<div class="menu">
-  <div class="card">
-    <img src="images/burger.jpg">
-    <h4>Burger Ayam</h4>
-    <p>RM 6</p>
-    <button onclick="addCart('Burger Ayam',6)">Add to Cart</button>
+<section>
+  <h2>🍛 Nasi Goreng</h2>
+  <div class="grid">
+    <img src="images/nasi-goreng/Served-nasi-goreng-ayam-zoomed-500x500.jpg">
+    <img src="images/nasi-goreng/nasi-goreng-usa-recipe.jpg">
+    <img src="images/nasi-goreng/Nasi_goreng_pattaya_20231028_120535.jpg">
   </div>
 
-  <div class="card">
-    <img src="images/set.jpg">
-    <h4>Set Combo</h4>
-    <p>RM 12</p>
-    <button onclick="addCart('Set Combo',12)">Add to Cart</button>
+  <h2>🍜 Masakan Berkuah</h2>
+  <div class="grid">
+    <img src="images/masakan berkuah/cropped-Tomyam-Seafood-1.jpg">
+    <img src="images/masakan berkuah/Sup-Kambing-recipe-square.jpg">
+    <img src="images/masakan berkuah/mushroom-soup.jpg">
   </div>
 
-  <div class="card">
-    <img src="images/minuman.jpg">
-    <h4>Air Cola</h4>
-    <p>RM 3</p>
-    <button onclick="addCart('Air Cola',3)">Add to Cart</button>
-  </div>
-</div>
-
-<div class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</div>
-
-<!-- CART -->
-<div class="cart" id="cart">
-  <div class="cart-box">
-    <span class="close" onclick="closeCart()">×</span>
-    <h3>Cart</h3>
-    <div id="cartItems"></div>
-    <div class="total">Jumlah: RM <span id="total">0</span></div>
-    <a id="checkout" class="checkout" target="_blank">Checkout WhatsApp</a>
-  </div>
-</div>
-
-<script>
-const whatsapp = "6019XXXXXXX"; // TUKAR NO ANDA
-let cart = [];
-
-function addCart(nama,harga){
-  let item = cart.find(i=>i.nama===nama);
-  if(item) item.qty++;
-  else cart.push({nama,harga,qty:1});
-  renderCart();
-}
-
-function renderCart(){
-  let html="";
-  let total=0;
-  cart.forEach((i,idx)=>{
-    total += i.harga * i.qty;
-    html += `
-      <div class="cart-item">
-        <span>${i.nama} x ${i.qty}</span>
-        <span>
-          <button onclick="cart[idx].qty--; if(cart[idx].qty<=0) cart.splice(idx,1); renderCart()">-</button>
-          <button onclick="cart[idx].qty++; renderCart()">+</button>
-        </span>
-      </div>`;
-  });
-  document.getElementById("cartItems").innerHTML = html;
-  document.getElementById("total").innerText = total;
-  document.getElementById("count").innerText = cart.length;
-
-  let msg = "Order:%0A";
-  cart.forEach(i=>{
-    msg += `${i.nama} x${i.qty} = RM${i.harga*i.qty}%0A`;
-  });
-  msg += `Jumlah: RM${total}`;
-
-  document.getElementById("checkout").href =
-    `https://wa.me/${whatsapp}?text=${msg}`;
-}
-
-function openCart(){
-  document.getElementById("cart").style.display="flex";
-}
-function closeCart(){
-  document.getElementById("cart").style.display="none";
-}
-</script>
-
-</body>
-</html>.cart-btn{
-  position:fixed;
-  bottom:15px;right:15px;
-  background:#000;color:#fff;
-  padding:14px 18px;
-  border-radius:30px;
-  cursor:pointer
-}
-
-/* CART POPUP */
-.cart{
-  display:none;
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.6);
-  justify-content:center;align-items:center
-}
-.cart-box{
-  background:#fff;
-  width:90%;max-width:360px;
-  border-radius:16px;
-  padding:16px
-}
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin:8px 0
-}
-.cart-item button{
-  padding:2px 8px
-}
-.total{
-  font-weight:bold;
-  margin-top:10px
-}
-.checkout{
-  display:block;
-  background:#25D366;
-  color:#fff;
-  text-align:center;
-  padding:12px;
-  border-radius:30px;
-  margin-top:12px;
-  text-decoration:none
-}
-.close{
-  float:right;
-  cursor:pointer;
-  font-size:20px
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>Demo Fast Food</h1>
-  <p>Add to Cart + Auto Kira</p>
-</header>
-
-<div class="menu">
-  <div class="card">
-    <img src="images/burger.jpg">
-    <h4>Burger Ayam</h4>
-    <p>RM 6</p>
-    <button onclick="addCart('Burger Ayam',6)">Add to Cart</button>
+  <h2>🥤 Minuman</h2>
+  <div class="grid">
+    <img src="images/minuman/Teh-ais-recipe.jpg">
+    <img src="images/minuman/Air-Lemon-Kocha-1000x1000-1.jpg">
+    <img src="images/minuman/NESCAFÉ Cans Ice.webp">
   </div>
 
-  <div class="card">
-    <img src="images/set.jpg">
-    <h4>Set Combo</h4>
-    <p>RM 12</p>
-    <button onclick="addCart('Set Combo',12)">Add to Cart</button>
+  <h2>🍰 Pencuci Mulut</h2>
+  <div class="grid">
+    <img src="images/pencuci mulut/moist-chocolate-cake-featured.jpg">
+    <img src="images/pencuci mulut/puding-coklat-ala-kfc-foto-resep-utama.jpg">
   </div>
+</section>
 
-  <div class="card">
-    <img src="images/minuman.jpg">
-    <h4>Air Cola</h4>
-    <p>RM 3</p>
-    <button onclick="addCart('Air Cola',3)">Add to Cart</button>
-  </div>
-</div>
-
-<div class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</div>
-
-<!-- CART -->
-<div class="cart" id="cart">
-  <div class="cart-box">
-    <span class="close" onclick="closeCart()">×</span>
-    <h3>Cart</h3>
-    <div id="cartItems"></div>
-    <div class="total">Jumlah: RM <span id="total">0</span></div>
-    <a id="checkout" class="checkout" target="_blank">Checkout WhatsApp</a>
-  </div>
-</div>
-
-<script>
-const whatsapp = "6019XXXXXXX"; // tukar no
-let cart = [];
-
-function addCart(nama,harga){
-  let item = cart.find(i=>i.nama===nama);
-  if(item) item.qty++;
-  else cart.push({nama,harga,qty:1});
-  renderCart();
-}
-
-function renderCart(){
-  let html="";
-  let total=0;
-  cart.forEach((i,idx)=>{
-    total += i.harga * i.qty;
-    html+=`
-      <div class="cart-item">
-        <span>${i.nama} x ${i.qty}</span>
-        <span>
-          <button onclick="cart[idx].qty--;cart[idx].qty<=0&&cart.splice(idx,1);renderCart()">-</button>
-          <button onclick="cart[idx].qty++;renderCart()">+</button>
-        </span>
-      </div>`;
-  });
-  document.getElementById("cartItems").innerHTML=html;
-  document.getElementById("total").innerText=total;
-  document.getElementById("count").innerText=cart.length;
-
-  let msg="Order:%0A";
-  cart.forEach(i=>{
-    msg+=`${i.nama} x${i.qty} = RM${i.harga*i.qty}%0A`;
-  });
-  msg+=`Jumlah: RM${total}`;
-  document.getElementById("checkout").href=
-    `https://wa.me/${whatsapp}?text=${msg}`;
-}
-
-function openCart(){document.getElementById("cart").style.display="flex"}
-function closeCart(){document.getElementById("cart").style.display="none"}
-</script>
+<footer>
+  © Kedai Makan Anda
+</footer>
 
 </body>
 </html>
