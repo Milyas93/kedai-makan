@@ -1,65 +1,188 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Masakan Berkuah</title>
+
+<style>
+:root{
+  --primary:#ff7a00;
+  --bg:#f7f7f7;
+  --card:#ffffff;
+  --shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:#222;
+}
+
+/* HEADER */
+header{
+  background:var(--primary);
+  color:#fff;
+  padding:20px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* SECTION */
+.section{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.section h2{
+  margin-bottom:20px;
+  border-left:6px solid var(--primary);
+  padding-left:12px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card .info{
+  padding:15px;
+}
+
+.card h3{
+  margin:0 0 6px;
+}
+
+.price{
+  color:var(--primary);
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🍲 Menu Masakan Berkuah
+</header>
+
 <section class="section">
-  <h2>🍲 Masakan Berkuah</h2>
+  <h2>Masakan Berkuah</h2>
 
   <div class="grid">
+
     <div class="card">
       <img src="masakan-berkuah/1.jpg">
-      <h3>Sup Ayam</h3>
-      <p class="price">RM7.00</p>
+      <div class="info">
+        <h3>Sup Ayam</h3>
+        <p class="price">RM7.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/2.jpg">
-      <h3>Sup Daging</h3>
-      <p class="price">RM9.00</p>
+      <div class="info">
+        <h3>Sup Daging</h3>
+        <p class="price">RM9.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/3.jpg">
-      <h3>Tomyam Ayam</h3>
-      <p class="price">RM8.00</p>
+      <div class="info">
+        <h3>Tomyam Ayam</h3>
+        <p class="price">RM8.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/4.jpg">
-      <h3>Tomyam Seafood</h3>
-      <p class="price">RM10.00</p>
+      <div class="info">
+        <h3>Tomyam Seafood</h3>
+        <p class="price">RM10.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/5.jpg">
-      <h3>Sup Kambing</h3>
-      <p class="price">RM12.00</p>
+      <div class="info">
+        <h3>Sup Kambing</h3>
+        <p class="price">RM12.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/6.jpg">
-      <h3>Sup Tulang</h3>
-      <p class="price">RM11.00</p>
+      <div class="info">
+        <h3>Sup Tulang</h3>
+        <p class="price">RM11.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/7.jpg">
-      <h3>Sup Sayur</h3>
-      <p class="price">RM6.00</p>
+      <div class="info">
+        <h3>Sup Sayur</h3>
+        <p class="price">RM6.00</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/8.jpg">
-      <h3>Sup Cendawan</h3>
-      <p class="price">RM6.50</p>
+      <div class="info">
+        <h3>Sup Cendawan</h3>
+        <p class="price">RM6.50</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="masakan-berkuah/9.jpg">
-      <h3>Sup Ikan</h3>
-      <p class="price">RM9.00</p>
+      <div class="info">
+        <h3>Sup Ikan</h3>
+        <p class="price">RM9.00</p>
+      </div>
     </div>
 
-    <div class="card">
-      <img src="masakan-berkuah/10.jpg">
-      <h3>Sup Pedas</h3>
-      <p class="price">RM8.50</p>
-    </div>
   </div>
 </section>
+
+<footer>
+© Kedai Makan Anda
+</footer>
+
+</body>
+</html>
