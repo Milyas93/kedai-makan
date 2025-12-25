@@ -3,72 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kedai Makan Anda</title>
+<title>Alias Tomyam</title>
 
 <style>
 :root{
   --primary:#ff7a00;
-  --bg:#f7f7f7;
-  --card:#ffffff;
-  --shadow:0 10px 28px rgba(0,0,0,.12);
+  --dark:#0f0f0f;
+  --bg:#141414;
+  --card:#1d1d1d;
+  --text:#f5f5f5;
+  --muted:#aaa;
+  --shadow:0 15px 40px rgba(0,0,0,.6);
 }
+
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'Segoe UI',Arial,sans-serif;
   background:var(--bg);
-  color:#222;
+  color:var(--text);
 }
 
 /* HERO */
 .hero{
-  height:85vh;
+  height:90vh;
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.85)),
     url("hero.png") center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
 }
-.hero h1{font-size:52px;margin:0}
-.hero p{font-size:18px;margin:10px 0 24px}
+.hero h1{
+  font-size:56px;
+  letter-spacing:1px;
+}
+.hero p{
+  font-size:20px;
+  color:#ffd7b0;
+}
 .hero a{
+  display:inline-block;
+  margin-top:22px;
+  padding:15px 38px;
   background:var(--primary);
   color:#fff;
-  padding:14px 34px;
-  border-radius:30px;
+  border-radius:40px;
   text-decoration:none;
   font-weight:bold;
+  box-shadow:0 0 25px rgba(255,122,0,.6);
 }
 
-section{padding:36px 6%}
+/* SECTION */
+section{padding:60px 6%}
 h2{
-  margin-bottom:22px;
+  font-size:26px;
+  margin-bottom:26px;
   border-left:6px solid var(--primary);
-  padding-left:12px;
+  padding-left:14px;
 }
+
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
 }
+
+/* CARD */
 .card{
   background:var(--card);
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   box-shadow:var(--shadow);
+  transition:.35s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 0 2px var(--primary), var(--shadow);
 }
 .card img{
   width:100%;
-  height:180px;
+  height:190px;
   object-fit:cover;
 }
-.info{padding:14px}
-.info h3{margin:0 0 6px;font-size:18px}
-.price{color:var(--primary);font-weight:bold}
-footer{text-align:center;padding:28px;color:#777}
+.info{padding:16px}
+.info h3{
+  margin:0 0 6px;
+  font-size:18px;
+}
+.price{
+  color:var(--primary);
+  font-weight:bold;
+  font-size:17px;
+}
+
+/* FOOTER */
+footer{
+  background:#0a0a0a;
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:14px;
+}
 </style>
 </head>
 
@@ -85,7 +123,7 @@ footer{text-align:center;padding:28px;color:#777}
 
 <div id="menu"></div>
 
-<!-- NASI GORENG (3) -->
+<!-- NASI GORENG -->
 <section>
 <h2>🍳 Nasi Goreng</h2>
 <div class="grid">
@@ -95,7 +133,7 @@ footer{text-align:center;padding:28px;color:#777}
 </div>
 </section>
 
-<!-- MASAKAN BERKUAH (9) -->
+<!-- MASAKAN BERKUAH -->
 <section>
 <h2>🍲 Masakan Berkuah</h2>
 <div class="grid">
@@ -111,7 +149,7 @@ footer{text-align:center;padding:28px;color:#777}
 </div>
 </section>
 
-<!-- MINUMAN (7) -->
+<!-- MINUMAN -->
 <section>
 <h2>🥤 Minuman</h2>
 <div class="grid">
@@ -125,7 +163,7 @@ footer{text-align:center;padding:28px;color:#777}
 </div>
 </section>
 
-<!-- PENCUCI MULUT (6) -->
+<!-- PENCUCI MULUT -->
 <section>
 <h2>🍰 Pencuci Mulut</h2>
 <div class="grid">
@@ -138,7 +176,7 @@ footer{text-align:center;padding:28px;color:#777}
 </div>
 </section>
 
-<footer>© Kedai Makan Anda</footer>
+<footer>© Alias Tomyam</footer>
 
 </body>
 </html>
