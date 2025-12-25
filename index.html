@@ -3,122 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kedai Makan Anda</title>
+<title>Menu Masakan Berkuah</title>
 
 <style>
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f4f4;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f7f7f7;
+  color:#222;
 }
+
 header{
   background:#ff7a00;
   color:#fff;
+  padding:18px;
   text-align:center;
-  padding:20px;
   font-size:22px;
   font-weight:bold;
 }
+
 .section{
-  padding:25px;
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 16px;
 }
+
 .section h2{
-  margin-bottom:15px;
-  border-left:6px solid #ff7a00;
-  padding-left:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:20px;
 }
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:20px;
 }
+
 .card{
   background:#fff;
-  border-radius:12px;
+  border-radius:14px;
   overflow:hidden;
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  transition:.2s;
 }
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
 .card img{
   width:100%;
-  height:160px;
+  height:180px;
   object-fit:cover;
+  display:block;
+}
+
+.card .name{
+  padding:12px;
+  font-weight:bold;
+  text-align:center;
 }
 footer{
   text-align:center;
-  padding:15px;
-  font-size:14px;
-  color:#666;
+  padding:30px;
+  color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<header>🍽️ Pilih Menu Kegemaran Anda</header>
+<header>
+🍲 Menu Masakan Berkuah
+</header>
 
-<!-- NASI GORENG -->
 <div class="section">
-<h2>🍳 Nasi Goreng</h2>
-<div class="grid">
-  <img src="nasi-goreng/1.jpg" class="card">
-  <img src="nasi-goreng/2.jpg" class="card">
-  <img src="nasi-goreng/3.jpg" class="card">
-  <img src="nasi-goreng/4.jpg" class="card">
-  <img src="nasi-goreng/5.jpg" class="card">
-  <img src="nasi-goreng/6.jpg" class="card">
-</div>
+  <h2>🍲 Masakan Berkuah</h2>
+
+  <div class="grid">
+    <!-- 1 -->
+    <div class="card">
+      <img src="masakan-berkuah/1.jpg">
+      <div class="name">Menu 1</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <img src="masakan-berkuah/2.jpg">
+      <div class="name">Menu 2</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <img src="masakan-berkuah/3.jpg">
+      <div class="name">Menu 3</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <img src="masakan-berkuah/4.jpg">
+      <div class="name">Menu 4</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <img src="masakan-berkuah/5.jpg">
+      <div class="name">Menu 5</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <img src="masakan-berkuah/6.jpg">
+      <div class="name">Menu 6</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <img src="masakan-berkuah/7.jpg">
+      <div class="name">Menu 7</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <img src="masakan-berkuah/8.jpg">
+      <div class="name">Menu 8</div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <img src="masakan-berkuah/9.jpg">
+      <div class="name">Menu 9</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <img src="masakan-berkuah/10.jpg">
+      <div class="name">Menu 10</div>
+    </div>
+
+  </div>
 </div>
 
-<!-- MASAKAN BERKUAH -->
-<div class="section">
-<h2>🍲 Masakan Berkuah</h2>
-<div class="grid">
-  <img src="masakan-berkuah/1.jpg" class="card">
-  <img src="masakan-berkuah/2.jpg" class="card">
-  <img src="masakan-berkuah/3.jpg" class="card">
-  <img src="masakan-berkuah/4.jpg" class="card">
-  <img src="masakan-berkuah/5.jpg" class="card">
-  <img src="masakan-berkuah/6.jpg" class="card">
-  <img src="masakan-berkuah/7.jpg" class="card">
-  <img src="masakan-berkuah/8.jpg" class="card">
-  <img src="masakan-berkuah/9.jpg" class="card">
-  <img src="masakan-berkuah/10.jpg" class="card">
-</div>
-</div>
-
-<!-- MINUMAN -->
-<div class="section">
-<h2>🥤 Minuman</h2>
-<div class="grid">
-  <img src="minuman/1.jpg" class="card">
-  <img src="minuman/2.jpg" class="card">
-  <img src="minuman/3.jpg" class="card">
-  <img src="minuman/4.jpg" class="card">
-  <img src="minuman/5.jpg" class="card">
-  <img src="minuman/6.jpg" class="card">
-  <img src="minuman/7.jpg" class="card">
-  <img src="minuman/8.jpg" class="card">
-</div>
-</div>
-
-<!-- PENCUCI MULUT -->
-<div class="section">
-<h2>🍰 Pencuci Mulut</h2>
-<div class="grid">
-  <img src="pencuci-mulut/1.jpg" class="card">
-  <img src="pencuci-mulut/2.jpg" class="card">
-  <img src="pencuci-mulut/3.jpg" class="card">
-  <img src="pencuci-mulut/4.jpg" class="card">
-  <img src="pencuci-mulut/5.jpg" class="card">
-  <img src="pencuci-mulut/6.jpg" class="card">
-  <img src="pencuci-mulut/7.jpg" class="card">
-  <img src="pencuci-mulut/8.jpg" class="card">
-  <img src="pencuci-mulut/9.jpg" class="card">
-  <img src="pencuci-mulut/10.jpg" class="card">
-</div>
-</div>
-
-<footer>© Kedai Makan Anda</footer>
+<footer>
+© Kedai Makan Anda
+</footer>
 
 </body>
 </html>
