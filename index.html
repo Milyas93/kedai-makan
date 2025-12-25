@@ -2,69 +2,56 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kedai Makan Anda</title>
 
 <style>
-:root{
-  --primary:#ff7a00;
-  --bg:#f7f7f7;
-  --card:#ffffff;
-  --shadow:0 10px 30px rgba(0,0,0,.12);
-}
-*{box-sizing:border-box}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
+  background:#f6f6f6;
   color:#222;
 }
 header{
-  background:var(--primary);
+  background:#ff7a00;
   color:#fff;
-  text-align:center;
   padding:18px;
+  text-align:center;
   font-size:20px;
   font-weight:bold;
 }
-section{
-  max-width:1200px;
-  margin:30px auto;
-  padding:0 15px;
+.section{
+  padding:25px;
 }
-h2{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.section h2{
   margin-bottom:15px;
-}
-h2::before{
-  content:"";
-  width:6px;
-  height:28px;
-  background:var(--primary);
-  border-radius:4px;
+  border-left:5px solid #ff7a00;
+  padding-left:10px;
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
 .card{
-  background:var(--card);
-  border-radius:15px;
+  background:#fff;
+  border-radius:12px;
   overflow:hidden;
-  box-shadow:var(--shadow);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 .card img{
   width:100%;
-  height:200px;
+  height:160px;
   object-fit:cover;
-  display:block;
+}
+.card .info{
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
 }
 footer{
   text-align:center;
-  padding:20px;
+  padding:15px;
   font-size:14px;
   color:#666;
 }
@@ -73,89 +60,71 @@ footer{
 
 <body>
 
-<header>
-🍽️ Pilih Menu Kegemaran Anda
-</header>
+<header>🍽️ Pilih Menu Kegemaran Anda</header>
 
-<section>
+<!-- NASI GORENG -->
+<div class="section">
 <h2>🍳 Nasi Goreng</h2>
-<div class="grid" id="nasi-goreng"></div>
-</section>
+<div class="grid">
+  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info">Nasi Goreng 1</div></div>
+  <div class="card"><img src="nasi-goreng/2.jpg"><div class="info">Nasi Goreng 2</div></div>
+  <div class="card"><img src="nasi-goreng/3.jpg"><div class="info">Nasi Goreng 3</div></div>
+  <div class="card"><img src="nasi-goreng/4.jpg"><div class="info">Nasi Goreng 4</div></div>
+  <div class="card"><img src="nasi-goreng/5.jpg"><div class="info">Nasi Goreng 5</div></div>
+  <div class="card"><img src="nasi-goreng/6.jpg"><div class="info">Nasi Goreng 6</div></div>
+</div>
+</div>
 
-<section>
+<!-- MASAKAN BERKUAH -->
+<div class="section">
 <h2>🍲 Masakan Berkuah</h2>
-<div class="grid" id="masakan-berkuah"></div>
-</section>
+<div class="grid">
+  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info">Menu 1</div></div>
+  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info">Menu 2</div></div>
+  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info">Menu 3</div></div>
+  <div class="card"><img src="masakan-berkuah/4.jpg"><div class="info">Menu 4</div></div>
+  <div class="card"><img src="masakan-berkuah/5.jpg"><div class="info">Menu 5</div></div>
+  <div class="card"><img src="masakan-berkuah/6.jpg"><div class="info">Menu 6</div></div>
+  <div class="card"><img src="masakan-berkuah/7.jpg"><div class="info">Menu 7</div></div>
+  <div class="card"><img src="masakan-berkuah/8.jpg"><div class="info">Menu 8</div></div>
+  <div class="card"><img src="masakan-berkuah/9.jpg"><div class="info">Menu 9</div></div>
+  <div class="card"><img src="masakan-berkuah/10.jpg"><div class="info">Menu 10</div></div>
+</div>
+</div>
 
-<section>
+<!-- MINUMAN -->
+<div class="section">
 <h2>🥤 Minuman</h2>
-<div class="grid" id="minuman"></div>
-</section>
+<div class="grid">
+  <div class="card"><img src="minuman/1.jpg"></div>
+  <div class="card"><img src="minuman/2.jpg"></div>
+  <div class="card"><img src="minuman/3.jpg"></div>
+  <div class="card"><img src="minuman/4.jpg"></div>
+  <div class="card"><img src="minuman/5.jpg"></div>
+  <div class="card"><img src="minuman/6.jpg"></div>
+  <div class="card"><img src="minuman/7.jpg"></div>
+  <div class="card"><img src="minuman/8.jpg"></div>
+</div>
+</div>
 
-<section>
+<!-- PENCUCI MULUT -->
+<div class="section">
 <h2>🍰 Pencuci Mulut</h2>
-<div class="grid" id="pencuci-mulut"></div>
-</section>
+<div class="grid">
+  <div class="card"><img src="pencuci-mulut/1.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/2.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/3.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/4.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/5.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/6.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/7.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/8.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/9.jpg"></div>
+  <div class="card"><img src="pencuci-mulut/10.jpg"></div>
+</div>
+</div>
 
-<footer>
-© Kedai Makan Anda
-</footer>
-
-<script>
-const folders = {
-  "nasi-goreng": [
-    "images/nasi-goreng/",
-  ],
-  "masakan-berkuah": [
-    "images/masakan-berkuah/",
-  ],
-  "minuman": [
-    "images/minuman/",
-  ],
-  "pencuci-mulut": [
-    "images/pencuci-mulut/",
-  ]
-};
-
-/*
-⚠️ CARA GUNA:
-Untuk setiap folder:
-1. Klik GitHub → buka folder
-2. Salin NAMA FAIL gambar
-3. Tampal dalam array di bawah
-*/
-
-const images = {
-  "nasi-goreng":[
-    "nasi-goreng-1.jpg",
-    "nasi-goreng-2.jpg",
-    "nasi-goreng-3.jpg"
-  ],
-  "masakan-berkuah":[
-    "Tomyam_Ayam_.jpg",
-    "SupDaging13.jpg",
-    "mushroom-soup.jpg"
-  ],
-  "minuman":[
-    "air-teh.jpg",
-    "air-kopi.jpg"
-  ],
-  "pencuci-mulut":[
-    "dessert-1.jpg",
-    "dessert-2.jpg"
-  ]
-};
-
-for(const kategori in images){
-  const container = document.getElementById(kategori);
-  images[kategori].forEach(img=>{
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<img src="images/${kategori}/${img}" alt="">`;
-    container.appendChild(card);
-  });
-}
-</script>
+<footer>© Kedai Makan Anda</footer>
 
 </body>
 </html>
