@@ -9,178 +9,149 @@
 :root{
   --primary:#ff7a00;
   --dark:#111;
-  --light:#f9f9f9;
+  --card:#1e1e1e;
 }
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-    url("hero.png") center/cover fixed;
-  color:white;
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),url("hero.png") center/cover no-repeat fixed;
+  color:#fff;
 }
-
-/* HERO */
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
 }
-.hero h1{
-  font-size:60px;
-  margin:0;
-}
-.hero p{
-  font-size:20px;
-  margin:10px 0 25px;
-}
-.hero a{
-  background:var(--primary);
-  padding:14px 40px;
-  color:#fff;
-  text-decoration:none;
+.hero h1{font-size:60px}
+.hero p{font-size:22px}
+.hero span{
+  background:#ff7a00;
+  padding:12px 28px;
   border-radius:30px;
-  font-weight:bold;
+  display:inline-block;
+  margin-top:20px;
 }
 
-/* SECTION */
-section{
-  padding:70px 6%;
-  background:rgba(0,0,0,.85);
-}
-h2{
-  border-left:6px solid var(--primary);
-  padding-left:15px;
-  margin-bottom:25px;
-}
+section{padding:60px 6%}
+h2{border-left:6px solid #ff7a00;padding-left:14px}
 
-/* MENU */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
+  gap:20px;
 }
 .card{
   background:#1b1b1b;
   border-radius:14px;
   overflow:hidden;
 }
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-.info{
-  padding:15px;
-}
-.info h3{margin:0 0 6px}
-.price{color:#ffb84d;font-weight:bold}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:14px}
+.price{color:#ffb347}
 button{
   width:100%;
   padding:10px;
   background:#ff7a00;
+  color:#fff;
   border:none;
-  color:white;
-  margin-top:10px;
-  border-radius:6px;
   cursor:pointer;
 }
 
 /* CART */
 .cart{
   position:fixed;
-  bottom:20px;
   right:20px;
+  bottom:20px;
   background:#111;
   width:280px;
   padding:15px;
-  border-radius:15px;
-  box-shadow:0 0 20px rgba(0,0,0,.6);
+  border-radius:14px;
 }
-.cart h3{margin-top:0}
 .cart ul{list-style:none;padding:0}
-.cart li{
-  display:flex;
-  justify-content:space-between;
-  font-size:14px;
-}
-.cart .total{
-  margin-top:10px;
-  font-weight:bold;
-}
+.cart li{display:flex;justify-content:space-between}
 .cart a{
   display:block;
   background:#25D366;
-  color:#fff;
+  color:white;
   text-align:center;
   padding:10px;
   margin-top:10px;
   border-radius:20px;
-  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
-  <h1>Alias Tomyam</h1>
-  <p>Pedas • Padu • Puas Hati 🔥</p>
-  <a href="#menu">Lihat Menu</a>
+  <div>
+    <h1>Alias Tomyam</h1>
+    <p>Pedas • Padu • Puas Hati 🔥</p>
+    <span>Tempah Sekarang</span>
+  </div>
 </div>
 
-<!-- MENU -->
-<section id="menu">
-
+<section>
 <h2>🍳 Nasi Goreng</h2>
 <div class="grid">
   <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM7</div><button onclick="add('Nasi Goreng Ayam',7)">Tambah</button></div></div>
   <div class="card"><img src="nasi-goreng/2.jpg"><div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM8</div><button onclick="add('Nasi Goreng Kampung',8)">Tambah</button></div></div>
   <div class="card"><img src="nasi-goreng/3.jpg"><div class="info"><h3>Nasi Goreng Pattaya</h3><div class="price">RM9</div><button onclick="add('Nasi Goreng Pattaya',9)">Tambah</button></div></div>
 </div>
+</section>
 
+<section>
 <h2>🍲 Masakan Berkuah</h2>
 <div class="grid">
   <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Ayam</h3><div class="price">RM7</div><button onclick="add('Sup Ayam',7)">Tambah</button></div></div>
   <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM9</div><button onclick="add('Sup Daging',9)">Tambah</button></div></div>
-  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM10</div><button onclick="add('Tomyam Seafood',10)">Tambah</button></div></div>
+  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Sup Ekor</h3><div class="price">RM11</div><button onclick="add('Sup Ekor',11)">Tambah</button></div></div>
 </div>
+</section>
 
+<section>
 <h2>🥤 Minuman</h2>
 <div class="grid">
   <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM3</div><button onclick="add('Air Bandung',3)">Tambah</button></div></div>
   <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Teh Tarik</h3><div class="price">RM4</div><button onclick="add('Teh Tarik',4)">Tambah</button></div></div>
   <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM2.5</div><button onclick="add('Air Lemon',2.5)">Tambah</button></div></div>
 </div>
+</section>
 
 <div class="cart">
   <h3>🛒 Troli</h3>
   <ul id="cart"></ul>
-  <div class="total">Jumlah: RM <span id="total">0.00</span></div>
-  <a id="wa" target="_blank">Order WhatsApp</a>
+  <div class="total">Jumlah: RM <span id="total">0</span></div>
+  <a id="wa" href="#" target="_blank">Hantar ke WhatsApp</a>
 </div>
 
 <script>
-let cart=[];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 function add(name,price){
   cart.push({name,price});
-  let list="";
-  let total=0;
-  cart.forEach(i=>{
-    list+=`<li>${i.name} - RM${i.price}</li>`;
-    total+=i.price;
-  });
-  document.getElementById("cart").innerHTML=list;
-  document.getElementById("total").innerText=total.toFixed(2);
-  document.getElementById("wa").href=
-  "https://wa.me/60123456789?text="+
-  encodeURIComponent("Saya nak order:\n"+cart.map(i=>`- ${i.name} (RM${i.price})`).join("\n")+"\nJumlah: RM"+total);
+  localStorage.setItem("cart",JSON.stringify(cart));
+  render();
 }
+
+function render(){
+  let html="";
+  let total=0;
+  cart.forEach(item=>{
+    html+=`<li>${item.name}<span>RM${item.price}</span></li>`;
+    total+=item.price;
+  });
+  document.getElementById("cart").innerHTML=html;
+  document.getElementById("total").innerText=total;
+  document.getElementById("wa").href=
+    "https://wa.me/60123456789?text="+
+    encodeURIComponent("Saya nak order:\n"+cart.map(i=>"- "+i.name).join("\n")+"\nJumlah RM"+total);
+}
+
+render();
 </script>
 
 </body>
