@@ -8,106 +8,93 @@
 <style>
 :root{
   --primary:#ff7a00;
-  --text:#f5f5f5;
-  --muted:#cfcfcf;
-  --card:rgba(20,20,20,.92);
-  --shadow:0 18px 45px rgba(0,0,0,.7);
+  --dark:#111;
+  --card:#1f1f1f;
+  --text:#fff;
 }
-
-*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:'Segoe UI',Arial,sans-serif;
-  color:var(--text);
-  background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-    url("hero.png") center/cover no-repeat fixed;
+  font-family:Arial, sans-serif;
+  background:#000;
+  color:#fff;
 }
 
 /* HERO */
 .hero{
-  min-height:100vh;
+  min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:40px;
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url("hero.png") center/cover;
 }
-.hero h1{
-  font-size:64px;
-  letter-spacing:3px;
-  margin:0;
-  text-shadow:0 10px 40px rgba(0,0,0,.9);
-}
-.hero p{
-  font-size:22px;
-  color:#ffd7b0;
-  margin:14px 0 30px;
-}
-.hero a{
+.hero h1{font-size:48px;}
+.hero p{color:#ffc;}
+.hero button{
+  padding:14px 35px;
+  border:none;
   background:var(--primary);
-  padding:15px 42px;
-  border-radius:40px;
   color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 30px rgba(255,122,0,.6);
+  font-size:18px;
+  border-radius:30px;
+  cursor:pointer;
 }
 
-/* SECTION */
-section{
-  padding:70px 6%;
-  backdrop-filter: blur(3px);
-}
-h2{
-  border-left:6px solid var(--primary);
-  padding-left:14px;
-  margin-bottom:28px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px;
-}
-
-/* CARD */
-.card{
-  background:var(--card);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:.35s ease;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 0 2px var(--primary), var(--shadow);
-}
-.card img{
+/* MODE */
+.section{padding:20px;}
+.mode button{
   width:100%;
-  height:200px;
-  object-fit:cover;
-}
-.info{
-  padding:16px;
-}
-.info h3{
-  margin:0 0 6px;
-}
-.price{
-  color:var(--primary);
-  font-weight:bold;
+  padding:14px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+  background:#222;
+  color:#fff;
+  font-size:17px;
 }
 
-/* FOOTER */
-footer{
-  background:rgba(0,0,0,.6);
+/* MENU */
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+}
+.item{
+  background:#1b1b1b;
+  border-radius:12px;
+  padding:10px;
   text-align:center;
-  padding:40px;
-  color:var(--muted);
-  font-size:14px;
+}
+.item img{
+  width:100%;
+  border-radius:10px;
+}
+.item button{
+  margin-top:8px;
+  width:100%;
+  padding:8px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  border-radius:8px;
+}
+
+/* CART */
+.cart{
+  background:#111;
+  padding:20px;
+}
+.cart h3{margin-top:0;}
+
+.order-btn{
+  width:100%;
+  padding:15px;
+  background:var(--primary);
+  border:none;
+  font-size:18px;
+  color:white;
+  border-radius:10px;
 }
 </style>
 </head>
@@ -115,70 +102,82 @@ footer{
 <body>
 
 <!-- HERO -->
-<header class="hero">
+<div class="hero">
   <div>
     <h1>Alias Tomyam</h1>
-    <p>Sedap • Pedas • Padu 🔥</p>
-    <a href="#menu">Lihat Menu</a>
+    <p>Pilih cara order anda</p>
+    <button onclick="document.getElementById('order').scrollIntoView()">Order Sekarang</button>
   </div>
-</header>
-
-<div id="menu"></div>
-
-<!-- NASI GORENG -->
-<section>
-<h2>🍳 Nasi Goreng</h2>
-<div class="grid">
-  <div class="card"><img src="nasi-goreng/1.jpg"><div class="info"><h3>Nasi Goreng Ayam</h3><div class="price">RM7.00</div></div></div>
-  <div class="card"><img src="nasi-goreng/2.jpg"><div class="info"><h3>Nasi Goreng Kampung</h3><div class="price">RM8.00</div></div></div>
-  <div class="card"><img src="nasi-goreng/3.jpg"><div class="info"><h3>Nasi Goreng Pattaya</h3><div class="price">RM9.00</div></div></div>
 </div>
-</section>
 
-<!-- MASAKAN BERKUAH -->
-<section>
-<h2>🍲 Masakan Berkuah</h2>
-<div class="grid">
-  <div class="card"><img src="masakan-berkuah/1.jpg"><div class="info"><h3>Sup Ayam</h3><div class="price">RM7.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/2.jpg"><div class="info"><h3>Sup Daging</h3><div class="price">RM9.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/3.jpg"><div class="info"><h3>Sup Ekor</h3><div class="price">RM13.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/4.jpg"><div class="info"><h3>Sup Tulang</h3><div class="price">RM11.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/5.jpg"><div class="info"><h3>Sup Kambing</h3><div class="price">RM12.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/6.jpg"><div class="info"><h3>Tomyam Ayam</h3><div class="price">RM8.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/7.jpg"><div class="info"><h3>Tomyam Seafood</h3><div class="price">RM10.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/8.jpg"><div class="info"><h3>Tomyam Campur</h3><div class="price">RM9.00</div></div></div>
-  <div class="card"><img src="masakan-berkuah/9.jpg"><div class="info"><h3>Sup Sayur Campur</h3><div class="price">RM6.00</div></div></div>
+<!-- MODE -->
+<div class="section" id="order">
+  <h2>Pilih Cara Order</h2>
+  <div class="mode">
+    <button onclick="setMode('SELF PICKUP')">SELF PICKUP</button>
+    <button onclick="setMode('DINE IN')">DINE IN</button>
+    <button onclick="setMode('COD')">COD</button>
+  </div>
 </div>
-</section>
 
-<!-- MINUMAN -->
-<section>
-<h2>🥤 Minuman</h2>
-<div class="grid">
-  <div class="card"><img src="minuman/1.jpg"><div class="info"><h3>Air Bandung</h3><div class="price">RM3.00</div></div></div>
-  <div class="card"><img src="minuman/2.jpg"><div class="info"><h3>Teh Tarik</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="minuman/3.jpg"><div class="info"><h3>Jus Oren</h3><div class="price">RM3.50</div></div></div>
-  <div class="card"><img src="minuman/4.jpg"><div class="info"><h3>Air Lemon</h3><div class="price">RM2.50</div></div></div>
-  <div class="card"><img src="minuman/5.jpg"><div class="info"><h3>Air Limau</h3><div class="price">RM2.50</div></div></div>
-  <div class="card"><img src="minuman/6.jpg"><div class="info"><h3>Air Tembikai</h3><div class="price">RM3.00</div></div></div>
-  <div class="card"><img src="minuman/7.jpg"><div class="info"><h3>Air Kosong</h3><div class="price">RM0.00</div></div></div>
+<!-- MENU -->
+<div class="section">
+  <h2>Menu</h2>
+  <div class="menu">
+    <div class="item">
+      <img src="nasi-goreng/1.jpg">
+      <p>Nasi Goreng</p>
+      <button onclick="addItem('Nasi Goreng')">Tambah</button>
+    </div>
+    <div class="item">
+      <img src="nasi-goreng/2.jpg">
+      <p>Tomyam</p>
+      <button onclick="addItem('Tomyam')">Tambah</button>
+    </div>
+    <div class="item">
+      <img src="minuman/1.jpg">
+      <p>Air Teh</p>
+      <button onclick="addItem('Air Teh')">Tambah</button>
+    </div>
+  </div>
 </div>
-</section>
 
-<!-- PENCUCI MULUT -->
-<section>
-<h2>🍰 Pencuci Mulut</h2>
-<div class="grid">
-  <div class="card"><img src="pencuci-mulut/1.jpg"><div class="info"><h3>Cendol</h3><div class="price">RM3.50</div></div></div>
-  <div class="card"><img src="pencuci-mulut/2.jpg"><div class="info"><h3>Ais Batu Campur</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/3.jpg"><div class="info"><h3>Pisang Goreng</h3><div class="price">RM4.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/4.jpg"><div class="info"><h3>Kek Coklat</h3><div class="price">RM5.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/5.jpg"><div class="info"><h3>Ais Krim</h3><div class="price">RM3.00</div></div></div>
-  <div class="card"><img src="pencuci-mulut/6.jpg"><div class="info"><h3>Puding Karamel</h3><div class="price">RM2.50</div></div></div>
+<!-- CART -->
+<div class="section cart">
+  <h3>Troli</h3>
+  <div id="cartList"></div>
+  <button class="order-btn" onclick="sendWhatsApp()">Hantar WhatsApp</button>
 </div>
-</section>
 
-<footer>© 2025 Alias Tomyam</footer>
+<script>
+let mode = "";
+let cart = [];
+
+function setMode(m){
+  mode = m;
+  alert("Mode dipilih: " + m);
+}
+
+function addItem(item){
+  cart.push(item);
+  renderCart();
+}
+
+function renderCart(){
+  document.getElementById("cartList").innerHTML =
+    cart.map(i => "• " + i).join("<br>");
+}
+
+function sendWhatsApp(){
+  if(cart.length === 0){
+    alert("Sila pilih menu dahulu");
+    return;
+  }
+  let text = "Order " + mode + "%0A";
+  cart.forEach(i => text += "- " + i + "%0A");
+  window.open("https://wa.me/60123456789?text=" + text);
+}
+</script>
 
 </body>
 </html>
