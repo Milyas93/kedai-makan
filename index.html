@@ -8,60 +8,42 @@
 <style>
 :root{
   --primary:#ff7a00;
-  --dark:#111;
-  --card:#1f1f1f;
+  --bg:#0f0f0f;
+  --card:#1c1c1c;
   --text:#fff;
 }
-
 body{
   margin:0;
   font-family:Arial, sans-serif;
   background:#000;
   color:#fff;
 }
-
-/* HERO */
 .hero{
   min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url("hero.png") center/cover;
+  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),url("hero.png") center/cover;
 }
 .hero h1{font-size:48px;}
-.hero p{color:#ffc;}
+.hero p{color:#ffd;}
 .hero button{
   padding:14px 35px;
-  border:none;
   background:var(--primary);
+  border:none;
   color:#fff;
   font-size:18px;
   border-radius:30px;
-  cursor:pointer;
 }
-
-/* MODE */
 .section{padding:20px;}
-.mode button{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:none;
-  border-radius:10px;
-  background:#222;
-  color:#fff;
-  font-size:17px;
-}
-
-/* MENU */
 .menu{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
 }
 .item{
-  background:#1b1b1b;
+  background:#1c1c1c;
   border-radius:12px;
   padding:10px;
   text-align:center;
@@ -74,19 +56,15 @@ body{
   margin-top:8px;
   width:100%;
   padding:8px;
-  border:none;
   background:var(--primary);
+  border:none;
   color:white;
   border-radius:8px;
 }
-
-/* CART */
 .cart{
   background:#111;
   padding:20px;
 }
-.cart h3{margin-top:0;}
-
 .order-btn{
   width:100%;
   padding:15px;
@@ -95,6 +73,15 @@ body{
   font-size:18px;
   color:white;
   border-radius:10px;
+}
+.mode button{
+  width:100%;
+  margin:5px 0;
+  padding:12px;
+  background:#222;
+  border:none;
+  color:#fff;
+  border-radius:8px;
 }
 </style>
 </head>
@@ -105,13 +92,13 @@ body{
 <div class="hero">
   <div>
     <h1>Alias Tomyam</h1>
-    <p>Pilih cara order anda</p>
-    <button onclick="document.getElementById('order').scrollIntoView()">Order Sekarang</button>
+    <p>Pilih menu & buat pesanan</p>
+    <button onclick="document.getElementById('menu').scrollIntoView()">Lihat Menu</button>
   </div>
 </div>
 
 <!-- MODE -->
-<div class="section" id="order">
+<div class="section">
   <h2>Pilih Cara Order</h2>
   <div class="mode">
     <button onclick="setMode('SELF PICKUP')">SELF PICKUP</button>
@@ -121,25 +108,9 @@ body{
 </div>
 
 <!-- MENU -->
-<div class="section">
+<div class="section" id="menu">
   <h2>Menu</h2>
-  <div class="menu">
-    <div class="item">
-      <img src="nasi-goreng/1.jpg">
-      <p>Nasi Goreng</p>
-      <button onclick="addItem('Nasi Goreng')">Tambah</button>
-    </div>
-    <div class="item">
-      <img src="nasi-goreng/2.jpg">
-      <p>Tomyam</p>
-      <button onclick="addItem('Tomyam')">Tambah</button>
-    </div>
-    <div class="item">
-      <img src="minuman/1.jpg">
-      <p>Air Teh</p>
-      <button onclick="addItem('Air Teh')">Tambah</button>
-    </div>
-  </div>
+  <div class="menu" id="menuList"></div>
 </div>
 
 <!-- CART -->
@@ -150,12 +121,30 @@ body{
 </div>
 
 <script>
-let mode = "";
+const menuItems = [
+  "Nasi Goreng Ayam","Nasi Goreng Kampung","Nasi Goreng Pattaya",
+  "Sup Ayam","Sup Daging","Sup Ekor","Sup Tulang","Sup Kambing",
+  "Tomyam Ayam","Tomyam Seafood","Tomyam Campur",
+  "Air Bandung","Teh Tarik","Jus Oren","Air Lemon","Air Limau","Air Tembikai",
+  "Cendol","Ais Batu Campur","Pisang Goreng","Kek Coklat","Ais Krim"
+];
+
 let cart = [];
+let mode = "SELF PICKUP";
+
+menuItems.forEach(item=>{
+  const div = document.createElement("div");
+  div.className = "item";
+  div.innerHTML = `
+    <p>${item}</p>
+    <button onclick="addItem('${item}')">Tambah</button>
+  `;
+  document.getElementById("menuList").appendChild(div);
+});
 
 function setMode(m){
   mode = m;
-  alert("Mode dipilih: " + m);
+  alert("Mod dipilih: " + m);
 }
 
 function addItem(item){
@@ -173,9 +162,9 @@ function sendWhatsApp(){
     alert("Sila pilih menu dahulu");
     return;
   }
-  let text = "Order " + mode + "%0A";
-  cart.forEach(i => text += "- " + i + "%0A");
-  window.open("https://wa.me/60123456789?text=" + text);
+  let msg = "Pesanan (" + mode + "):%0A";
+  cart.forEach(i => msg += "- " + i + "%0A");
+  window.open("https://wa.me/60123456789?text=" + msg);
 }
 </script>
 
