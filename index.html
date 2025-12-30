@@ -2,150 +2,86 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alias Tomyam</title>
 
 <style>
-:root{
-  --primary:#ff7a00;
-  --bg:#0f0f0f;
-  --card:#1c1c1c;
-  --text:#fff;
-}
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#000;
-  color:#fff;
-}
-.hero{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),url("images/hero.png") center/cover;
-}
-.hero h1{font-size:48px;}
-.hero p{color:#ffd;}
-.hero button{
-  padding:14px 35px;
-  background:var(--primary);
-  border:none;
-  color:#fff;
-  font-size:18px;
-  border-radius:30px;
-}
-.section{padding:20px;}
-.menu{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:15px;
-}
-.item{
-  background:#1c1c1c;
-  border-radius:12px;
-  padding:10px;
-  text-align:center;
-}
-.item img{
-  width:100%;
-  border-radius:10px;
-}
-.item button{
-  margin-top:8px;
-  width:100%;
-  padding:8px;
-  background:var(--primary);
-  border:none;
-  color:white;
-  border-radius:8px;
-}
-.cart{
-  background:#111;
-  padding:20px;
-}
-.order-btn{
-  width:100%;
-  padding:15px;
-  background:var(--primary);
-  border:none;
-  font-size:18px;
-  color:white;
-  border-radius:10px;
-}
+body{margin:0;font-family:Arial;background:#0f0f0f;color:#fff}
+.hero{text-align:center;padding:40px;background:#111}
+.hero h1{font-size:40px}
+.section{padding:20px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.item{background:#1e1e1e;padding:10px;border-radius:10px;text-align:center}
+.item img{width:100%;border-radius:8px}
+.item button{margin-top:8px;padding:8px;width:100%;background:#ff7a00;border:none;color:#fff;border-radius:6px}
+.cart{background:#111;padding:20px}
+button.main{width:100%;padding:15px;background:#ff7a00;color:#fff;border:none;font-size:18px;border-radius:10px}
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-  <div>
-    <h1>Alias Tomyam</h1>
-    <p>Pilih menu & buat pesanan</p>
-    <button onclick="document.getElementById('menu').scrollIntoView()">Lihat Menu</button>
-  </div>
+  <h1>Alias Tomyam</h1>
+  <p>Pilih menu & buat pesanan</p>
 </div>
 
-<div class="section" id="menu">
-  <h2>Menu</h2>
-
+<div class="section">
+  <h3>Menu</h3>
   <div class="menu">
-    <div class="item"><img src="images/nasi-goreng/1.jpg"><p>Nasi Goreng Ayam</p><button onclick="addItem('Nasi Goreng Ayam')">Tambah</button></div>
-    <div class="item"><img src="images/nasi-goreng/2.jpg"><p>Nasi Goreng Kampung</p><button onclick="addItem('Nasi Goreng Kampung')">Tambah</button></div>
-    <div class="item"><img src="images/nasi-goreng/3.jpg"><p>Nasi Goreng Pattaya</p><button onclick="addItem('Nasi Goreng Pattaya')">Tambah</button></div>
-
-    <div class="item"><img src="images/masakan-berkuah/1.jpg"><p>Sup Ayam</p><button onclick="addItem('Sup Ayam')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/2.jpg"><p>Sup Daging</p><button onclick="addItem('Sup Daging')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/3.jpg"><p>Sup Ekor</p><button onclick="addItem('Sup Ekor')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/4.jpg"><p>Sup Tulang</p><button onclick="addItem('Sup Tulang')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/5.jpg"><p>Sup Kambing</p><button onclick="addItem('Sup Kambing')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/6.jpg"><p>Tomyam Ayam</p><button onclick="addItem('Tomyam Ayam')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/7.jpg"><p>Tomyam Seafood</p><button onclick="addItem('Tomyam Seafood')">Tambah</button></div>
-    <div class="item"><img src="images/masakan-berkuah/8.jpg"><p>Tomyam Campur</p><button onclick="addItem('Tomyam Campur')">Tambah</button></div>
-
-    <div class="item"><img src="images/minuman/1.jpg"><p>Air Bandung</p><button onclick="addItem('Air Bandung')">Tambah</button></div>
-    <div class="item"><img src="images/minuman/2.jpg"><p>Teh Tarik</p><button onclick="addItem('Teh Tarik')">Tambah</button></div>
-    <div class="item"><img src="images/minuman/3.jpg"><p>Jus Oren</p><button onclick="addItem('Jus Oren')">Tambah</button></div>
-    <div class="item"><img src="images/minuman/4.jpg"><p>Air Lemon</p><button onclick="addItem('Air Lemon')">Tambah</button></div>
-    <div class="item"><img src="images/minuman/5.jpg"><p>Air Limau</p><button onclick="addItem('Air Limau')">Tambah</button></div>
-    <div class="item"><img src="images/minuman/6.jpg"><p>Air Tembikai</p><button onclick="addItem('Air Tembikai')">Tambah</button></div>
-
-    <div class="item"><img src="images/pencuci-mulut/1.jpg"><p>Cendol</p><button onclick="addItem('Cendol')">Tambah</button></div>
-    <div class="item"><img src="images/pencuci-mulut/2.jpg"><p>Ais Batu Campur</p><button onclick="addItem('Ais Batu Campur')">Tambah</button></div>
-    <div class="item"><img src="images/pencuci-mulut/3.jpg"><p>Pisang Goreng</p><button onclick="addItem('Pisang Goreng')">Tambah</button></div>
-    <div class="item"><img src="images/pencuci-mulut/4.jpg"><p>Kek Coklat</p><button onclick="addItem('Kek Coklat')">Tambah</button></div>
-    <div class="item"><img src="images/pencuci-mulut/5.jpg"><p>Ais Krim</p><button onclick="addItem('Ais Krim')">Tambah</button></div>
+    <div class="item"><img src="images/nasi-goreng/1.jpg"><p>Nasi Goreng</p><button onclick="addItem('Nasi Goreng',6)">Tambah</button></div>
+    <div class="item"><img src="images/masakan-berkuah/1.jpg"><p>Sup Ayam</p><button onclick="addItem('Sup Ayam',7)">Tambah</button></div>
+    <div class="item"><img src="images/minuman/1.jpg"><p>Air Bandung</p><button onclick="addItem('Air Bandung',3)">Tambah</button></div>
   </div>
 </div>
 
 <div class="section cart">
-  <h3>Troli</h3>
-  <div id="cartList"></div>
-  <button class="order-btn" onclick="sendWhatsApp()">Hantar WhatsApp</button>
+  <h3>Pesanan</h3>
+  <div id="cart"></div>
+  <button class="main" onclick="submitOrder()">Hantar Pesanan</button>
 </div>
 
 <script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcTZL8jzhfQaT7ZZ1gdrnUnxyuUgNgG7Bm9sTAuA9NFnp41fZBpYv-Ya8SI8XHvSPiSQ/exec";
+
 let cart = [];
 
-function addItem(item){
-  cart.push(item);
+function addItem(name, price){
+  cart.push({name, price});
   renderCart();
 }
 
 function renderCart(){
-  document.getElementById("cartList").innerHTML =
-    cart.map(i => "• " + i).join("<br>");
+  let html = "";
+  cart.forEach(i => {
+    html += `• ${i.name} - RM${i.price}<br>`;
+  });
+  document.getElementById("cart").innerHTML = html;
 }
 
-function sendWhatsApp(){
+function submitOrder(){
   if(cart.length === 0){
     alert("Sila pilih menu dahulu");
     return;
   }
-  let msg = "Tempahan:%0A";
-  cart.forEach(i => msg += "- " + i + "%0A");
-  window.open("https://wa.me/60123456789?text=" + msg);
+
+  const total = cart.reduce((a,b)=>a+b.price,0);
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      menu: cart.map(i=>i.name).join(", "),
+      harga: total,
+      kuantiti: cart.length,
+      jumlah: total
+    })
+  });
+
+  alert("Tempahan berjaya dihantar!");
+  cart = [];
+  renderCart();
 }
 </script>
 
